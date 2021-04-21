@@ -8,6 +8,19 @@ public class Main {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static Instant start;
 
+    private static void clear() {
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            System.out.flush();
+        } catch (Exception e) {}
+    }
+
+    private static void enterToContinue(String text) {
+        System.out.println(text);
+        System.out.print("Press enter to continue... ");
+        SCANNER.nextLine();
+    }
+
     private static int scanInt(String prompt) throws NumberFormatException {
         System.out.print(prompt);
         String input = SCANNER.nextLine();
@@ -18,14 +31,15 @@ public class Main {
     public static void printGame(Board board) {
         Instant current = Instant.now();
         Duration elapsed = Duration.between(start, current);
-        System.out.println("\nTime: " + String.format("%02d", elapsed.toMinutes()) + ":" + String.format("%02d", elapsed.toSecondsPart()));
+        System.out.println("Time: " + String.format("%02d", elapsed.toMinutes()) + ":" + String.format("%02d", elapsed.toSecondsPart()));
         System.out.println("Bombs: " + String.format("%03d", board.getNumberOfBombs() - board.getFlags()));
         System.out.println("\n" + board);
     }
 
     public static void helpCommand() {
-        System.out.println("Here is a list of commands:\nh: Shows this message\na <x> <y>: Activates the square at (x, y)\n" +
-            "f <x> <y>: Flags the square at (x, y), or unflags it if it is already flagged\nr: Resets the game\nq: Quits the game");
+        clear();
+        enterToContinue("Here is a list of commands:\nh: Shows this message\na <x> <y>: Activates the square at (x, y)\n" +
+            "f <x> <y>: Flags the square at (x, y), or unflags it if it is already flagged\nr: Resets the game\nq: Quits the game\n");
     }
 
     public static boolean playGame(int rows, int cols, int bombs) {
@@ -35,6 +49,7 @@ public class Main {
         
         boolean running = true;
         while (running) {
+            clear();
             printGame(board);
             System.out.print("Enter a move (type 'h' for a list of commands): ");
             String command = SCANNER.nextLine();
@@ -45,7 +60,7 @@ public class Main {
                     break;
                 case "a":
                     if (tokens.length < 3) {
-                        System.out.println("\nNot enough arguments!");
+                        enterToContinue("\nNot enough arguments!");
                         continue;
                     }
 
@@ -55,22 +70,23 @@ public class Main {
                         boolean bombActivated = board.activateAtPostion(board.convertX(x), board.convertY(y));
                         if (bombActivated) {
                             running = false;
-                            System.out.println("\nBomb activated from (" + x + ", " + y + ")!");
+                            clear();
+                            System.out.println("Bomb activated from (" + x + ", " + y + ")!\n");
                             board.activateAll();
                         }
                     } catch (NumberFormatException nfe) {
-                        System.out.println("\nFormat: a <x> <y>");
+                        enterToContinue("\nFormat: f <x> <y>");
                     } catch (IllegalArgumentException ile) {
-                        System.out.println("\n" + ile.getMessage());
+                        enterToContinue("\n" + ile.getMessage());
                     } catch (UnsupportedOperationException uoe) {
-                        System.out.println("\n" + uoe.getMessage());
+                        enterToContinue("\n" + uoe.getMessage());
                     }
 
                     break;
 
                 case "f":
                     if (tokens.length < 3) {
-                        System.out.println("\nNot enough arguments!");
+                        enterToContinue("\nNot enough arguments!");
                         continue;
                     }
 
@@ -79,22 +95,22 @@ public class Main {
                         int y = Integer.parseInt(tokens[2]);
                         board.flagPosition(board.convertX(x), board.convertY(y));
                     } catch (NumberFormatException nfe) {
-                        System.out.println("\nFormat: f <x> <y>");
+                        enterToContinue("\nFormat: f <x> <y>");
                     } catch (IllegalArgumentException ile) {
-                        System.out.println("\n" + ile.getMessage());
+                        enterToContinue("\n" + ile.getMessage());
                     } catch (UnsupportedOperationException uoe) {
-                        System.out.println("\n" + uoe.getMessage());
+                        enterToContinue("\n" + uoe.getMessage());
                     }
 
                     break;
                 case "r":
-                    System.out.println("\nResetting...\n");
+                    enterToContinue("\nResetting...\n");
                     return true;
                 case "q":
                     System.out.println("\nGoodbye!\n");
                     return false;
                 default:
-                    System.out.println("\nInvalid command.");
+                    enterToContinue("\nInvalid command.");
                     continue;
             }
 
@@ -129,28 +145,29 @@ public class Main {
         boolean playing = true;
         while (playing) {
             try {
+                clear();
                 int rows = scanInt("Enter the number of rows on the board: ");
                 int cols = scanInt("Enter the number of columns on the board: ");
                 int bombs = scanInt("Enter the number of bombs on the board: ");
 
                 if (rows < 1 || cols < 1 || cols > 52 || rows > 99) {
-                    System.out.println("\nError: Cannot make a board of size " + rows + "x" + cols + "\n");
+                    enterToContinue("\nError: Cannot make a board of size " + rows + "x" + cols + "\n");
                     continue;
                 }
 
                 if (bombs < 1) {
-                    System.out.println("\nError: Not enough bombs on the board.\n");
+                    enterToContinue("\nError: Not enough bombs on the board.\n");
                     continue;
                 }
 
                 if (bombs > rows * cols) {
-                    System.out.println("\nError: Too many bombs on the board!\n");
+                    enterToContinue("\nError: Too many bombs on the board!\n");
                     continue;
                 }
 
                 playing = playGame(rows, cols, bombs);
             } catch (NumberFormatException nfe) {
-                System.out.println("\nError: Must enter an integer.\n");
+                enterToContinue("\nError: Must enter an integer.\n");
                 continue;
             }
         }
