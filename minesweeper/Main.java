@@ -146,8 +146,8 @@ public class Main {
         while (playing) {
             try {
                 clear();
-                int rows = scanInt("Enter the number of rows on the board: ");
-                int cols = scanInt("Enter the number of columns on the board: ");
+                int rows = scanInt("Enter the number of rows on the board (Max 99): ");
+                int cols = scanInt("Enter the number of columns on the board (Max 52): ");
                 int bombs = scanInt("Enter the number of bombs on the board: ");
 
                 if (rows < 1 || cols < 1 || cols > 52 || rows > 99) {

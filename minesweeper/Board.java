@@ -61,7 +61,6 @@ public class Board {
         return numberOfBombs;
     }
 
-    // Change this to use ASCII characters 
     public int convertX(char x) throws IllegalArgumentException {
         int pos = (int)x;
         if (pos < 65 || (pos > 90 && pos < 97) || pos > 122)
