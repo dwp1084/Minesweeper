@@ -1,0 +1,20 @@
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\bin\Debug\net5.0-windows\Minesweeper Clone.exe
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\bin\Debug\net5.0-windows\Minesweeper Clone.deps.json
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\bin\Debug\net5.0-windows\Minesweeper Clone.runtimeconfig.json
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\bin\Debug\net5.0-windows\Minesweeper Clone.runtimeconfig.dev.json
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\bin\Debug\net5.0-windows\Minesweeper Clone.dll
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\bin\Debug\net5.0-windows\ref\Minesweeper Clone.dll
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\bin\Debug\net5.0-windows\Minesweeper Clone.pdb
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.csproj.GenerateResource.cache
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.AssemblyInfoInputs.cache
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.AssemblyInfo.cs
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.csproj.CoreCompileInputs.cache
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.dll
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\ref\Minesweeper Clone.dll
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.pdb
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.genruntimeconfig.cache
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper Clone.csproj.AssemblyReference.cache
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper_Clone.Menus.resources
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper_Clone.MineGUI.resources
+C:\Users\drewp\Documents\Coding\C#\Minesweeper Clone\obj\Debug\net5.0-windows\Minesweeper_Clone.Properties.Resources.resources

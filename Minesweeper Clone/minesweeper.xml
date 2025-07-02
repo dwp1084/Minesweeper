@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<minesweeper>
+	<members name="tilestate">
+		<TileState>
+			<summary>An enumeration representing the state of a tile on the minesweeper board.</summary>
+		</TileState>
+		<Armed>
+			<summary>Represents a tile that is neither activated nor flagged.</summary>
+		</Armed>
+		<Flagged>
+			<summary>Represents a tile that is flagged to indicate a possible bomb.</summary>
+		</Flagged>
+		<Activated>
+			<summary>Represents a tile that has been activated, any bombs on the square explode.</summary>
+		</Activated>
+	</members>
+	<members name="tile">
+		<Tile>
+			<summary>Represents a tile on the minesweeper board.</summary>
+		</Tile>
+		<IsBomb>
+			<summary>Boolean indicating whether the tile contains a bomb or not.</summary>
+		</IsBomb>
+		<State>
+			<summary>Indicates the current state of the tile.</summary>
+		</State>
+		<AdjacentBombs>
+			<summary>The number of tiles adjacent to this tile that contain bombs.</summary>
+		</AdjacentBombs>
+		<Flag>
+			<summary>
+				Toggles the flag for the current tile. If this function runs on an already activated tile,
+				nothing changes.
+			</summary>
+		</Flag>
+		<Activate>
+			<summary>Activates the tile only if the square is in the <c>Armed</c> state.</summary>
+		</Activate>
+		<IncrementBombs>
+			<summary>Increments <c>AdjacentBombs</c>.</summary>
+		</IncrementBombs>
+	</members>
+	<members name="locationtuple"></members>
+	<members name="board">
+		<Board>
+			<summary>Represents a minesweeper board.</summary>
+		</Board>
+		<MinBombs>
+			<summary>Constant for the minimum number of bombs allowed on the board.</summary>
+		</MinBombs>
+		<MaxBombs>
+			<summary>Constant for the maximum number of bombs allowed on the board.</summary>
+		</MaxBombs>
+		<MinSize>
+			<summary>Constant for the minimum horizontal and vertical size of the board.</summary>
+		</MinSize>
+		<MaxSize>
+			<summary>Constant for the maximum horizontal and vertical size of the board.</summary>
+		</MaxSize>
+		<gameEnd>
+			<summary>Boolean indicating whether the game has ended.</summary>
+		</gameEnd>
+		<board>
+			<summary>A 2D array of tiles representing the board.</summary>
+		</board>
+		<Rows>
+			<summary>The number of rows that the board contains.</summary>
+		</Rows>
+		<Cols>
+			<summary>The number of columns that the board contains.</summary>
+		</Cols>
+		<NumberOfBombs>
+			<summary>The number of bombs the board contains.</summary>
+		</NumberOfBombs>
+		<Flags>
+			<summary>The number of flags currently on the board.</summary>
+		</Flags>
+		<FillBoard>
+			<summary>
+				Helper function for the constructor. Generates <c>NumberOfBombs</c> unique locations on the board and places
+				bomb tiles at each of those locations, then fills in the rest of the spaces on the board with non-bomb tiles.
+				Then for each tile, it calculates the number of adjacent bombs to each tile.
+			</summary>
+		</FillBoard>
+		<EndGame>
+			<summary>Ends the game by setting <c>gameEnd</c> to true and activating all tiles on the board.</summary>
+		</EndGame>
+		<ActivateAll>
+			<summary>Activates all tiles on the board that aren't flagged.</summary>
+		</ActivateAll>
+		<CheckPosition>
+			<summary>Checks that <paramref name="x"/> and <paramref name="y"/> are both valid coordinates on the board.</summary>
+			<param name="x">The x value of the position.</param>
+			<param name="y">The y value of the position.</param>
+			<exception cref="ArgumentOutOfRangeException">
+				If either <paramref name="x"/> or <paramref name="y"/> are invalid locations.
+			</exception>
+		</CheckPosition>
+		<ActivateAtPosition>
+			<summary>Activates the tile at the given position.</summary>
+			<param name="x">The x value of the position.</param>
+			<param name="y">The y value of the position.</param>
+			<returns><c>true</c> if a bomb was activated, <c>false</c> otherwise.</returns>
+			<exception cref="ArgumentException">If the square is flagged.</exception>
+		</ActivateAtPosition>
+		<ActivateAroundActivated>
+			<summary>Activates all the tiles surrounding an already activated tile.</summary>
+			<param name="x">The x value of the position.</param>
+			<param name="y">The y value of the position.</param>
+			<returns><c>true</c> if a bomb was activated, <c>false</c> otherwise.</returns>
+		</ActivateAroundActivated>
+		<FlagAtPosition>
+			<summary>Flags the square at the given position.</summary>
+			<param name="x">The x value of the position.</param>
+			<param name="y">The y value of the position.</param>
+			<exception cref="ArgumentException">If the square is activated.</exception>
+		</FlagAtPosition>
+		<CheckForWin>
+			<summary>
+				Checks the board for a win condition. The game is won if every tile that's a bomb is flagged and every tile that's
+				not a bomb is activated.
+			</summary>
+			<returns><c>true</c> if the game has been won, <c>false</c> otherwise.</returns>
+		</CheckForWin>
+	</members>
+</minesweeper>

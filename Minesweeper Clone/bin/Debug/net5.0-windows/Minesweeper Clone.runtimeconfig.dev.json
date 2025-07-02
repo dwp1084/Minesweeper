@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\drewp\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\drewp\\.nuget\\packages"
+    ]
+  }
+}
